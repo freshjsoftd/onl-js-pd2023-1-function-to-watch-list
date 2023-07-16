@@ -3,7 +3,7 @@ import WatchItem from '../WatchItem/WatchItem';
 
 function WatchList({ movies, onToggle }) {
 	return (
-		<>
+		<div>
 			{movies.map((movie) => {
 				return (
 					<WatchItem
@@ -13,7 +13,7 @@ function WatchList({ movies, onToggle }) {
 					/>
 				);
 			})}
-		</>
+		</div>
 	);
 }
 

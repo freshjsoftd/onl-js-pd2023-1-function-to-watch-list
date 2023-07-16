@@ -1,20 +1,28 @@
 import React from 'react';
+import './WatchItem.css'
 
 const stylesWatchItem = {
 	color: 'red',
 };
 
-function toggleBackground(movie){
-  return {
+function toggleBackground(movie) {
+	return {
 		...stylesWatchItem,
-    backgroundColor: movie.isDone ? 'cadetblue' : 'darkgoldenrod'
-  };
+		backgroundColor: movie.isDone ? 'cadetblue' : 'darkgoldenrod',
+	};
 }
 
 function WatchItem({ movie, onToggle }) {
 	return (
-		<div style={toggleBackground(movie)} onClick={() => onToggle(movie.id)}>
-			<p>{movie.title}</p>
+		<div
+			className='watch-item'
+			style={toggleBackground(movie)}
+			onClick={() => onToggle(movie.id)}
+		>
+			<p className='content'>{movie.title}</p>
+			<span className='delete-btn'>
+				X
+			</span>
 		</div>
 	);
 }

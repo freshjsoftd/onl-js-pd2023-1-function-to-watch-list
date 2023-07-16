@@ -28,7 +28,6 @@ function App() {
 	const [toWatchMovies, setToWatchMovies] = useState(initialState);
 
 	function toggleToWatch(id) {
-		console.log(id);
 		const newWatchMovies = toWatchMovies.map((movie) => {
 			return movie.id !== id
 				? movie
@@ -38,9 +37,9 @@ function App() {
 	}
 
 	return (
-		<>
+		<div className="container">
 			<WatchList movies={toWatchMovies} onToggle={toggleToWatch} />
-		</>
+		</div>
 	);
 }
 
