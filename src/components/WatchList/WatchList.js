@@ -1,7 +1,7 @@
 import React from 'react';
 import WatchItem from '../WatchItem/WatchItem';
 
-function WatchList({ movies, onToggle }) {
+function WatchList({ movies, onToggle, onDelete }) {
 	return (
 		<div>
 			{movies.map((movie) => {
@@ -10,6 +10,7 @@ function WatchList({ movies, onToggle }) {
 						key={movie.id}
 						movie={movie}
 						onToggle={onToggle}
+						onDelete={onDelete}
 					/>
 				);
 			})}

@@ -2,6 +2,7 @@
   box-sizing: border-box;
 }
 .watch-item{
+  background-color: darkgoldenrod;
   border: 1px solid black;
   margin: 10px;
   min-width: 500px;
@@ -10,7 +11,9 @@
   display: flex;
   align-items: center;
 }
-
+.watch-item.done{
+  background-color: cadetblue;
+}
 .delete-btn{
   border: 1px solid black;
   min-height: 40px;
@@ -23,6 +26,5 @@
 .content{
   min-width: 400px;
   margin-right: 50px;
-  padding-left: 10px;
   font-size: 20px;
 }

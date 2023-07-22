@@ -1,18 +1,30 @@
 import React, { useState} from 'react';
+import PropTypes from 'prop-types';
+
+import './WatchForm.css'
 // import GrowingButton from '../GrowingButton/GrowingButton';
 
-function WatchForm() {
+function WatchForm({ onSubmit}) {
 
-  const [title, setTitle] = useState('');
-  const [director, setDirector] = useState('');
+	const [title, setTitle] = useState('');
+	const [director, setDirector] = useState('');
 
-  function onInputChange(e){
-    e.target.name === 'title' && setTitle(e.target.value);
-    e.target.name === 'director' && setDirector(e.target.value);
+	function onInputChange(e) {
+		e.target.name === 'title' && setTitle(e.target.value);
+		e.target.name === 'director' && setDirector(e.target.value);
+	}
+
+  function onFormSubmit(e){
+    e.preventDefault();
+    onSubmit({
+      title,
+      director,
+      isDone: false,
+    })
   }
 
-  return (
-		<form>
+	return (
+		<form onSubmit={onFormSubmit}>
 			<input
 				type='text'
 				name='title'
@@ -26,10 +38,14 @@ function WatchForm() {
 				onChange={onInputChange}
 			/>
 			<button className='add'>Add</button>
-      {/* <GrowingButton /> */}
+			{/* <GrowingButton  /> */}
 		</form>
-  );
+	);
 }
+
+WatchForm.propTypes = {
+	onSubmit: PropTypes.func.isRequired
+};
 
 export default WatchForm;
 
