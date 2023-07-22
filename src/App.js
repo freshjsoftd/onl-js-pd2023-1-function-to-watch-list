@@ -1,29 +1,12 @@
 import React, { useState } from 'react';
-import './App.css';
-import WatchList from './components/WatchList/WatchList';
+import {nanoid} from 'nanoid';
 
-const initialState = [
-	{
-		id: 1,
-		title: 'Movie 1',
-		isDone: false,
-	},
-	{
-		id: 2,
-		title: 'Movie 2',
-		isDone: false,
-	},
-	{
-		id: 3,
-		title: 'Movie 3',
-		isDone: false,
-	},
-	{
-		id: 4,
-		title: 'Movie 4',
-		isDone: false,
-	},
-];
+import WatchList from './components/WatchList/WatchList';
+import WatchForm from './components/WatchForm/WatchForm';
+import initialState from './model/initialState';
+import './App.css';
+
+
 function App() {
 	const [toWatchMovies, setToWatchMovies] = useState(initialState);
 
@@ -36,9 +19,16 @@ function App() {
 		setToWatchMovies(newWatchMovies);
 	}
 
+	function addNewMovie(movie) {
+		movie.id = nanoid(12);
+		const newWatchMovies = [...toWatchMovies, movie];
+		setToWatchMovies(newWatchMovies);
+	}
+
 	return (
-		<div className="container">
+		<div className='container'>
 			<WatchList movies={toWatchMovies} onToggle={toggleToWatch} />
+			<WatchForm onSubmit={addNewMovie} />
 		</div>
 	);
 }
