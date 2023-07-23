@@ -13,7 +13,7 @@ function toggleBackground(movie) {
 	};
 }
 
-function WatchItem({ movie, onToggle, onDelete }) {
+function WatchItem({ movie, onToggle, onDelete}) {
 	useEffect(() => {
 		// console.log(`Hello ${movie.director}`);
 		return () => {
@@ -40,7 +40,7 @@ function WatchItem({ movie, onToggle, onDelete }) {
 	);
 }
 WatchItem.propTypes = {
-	movie: PropTypes.object
+	movie: PropTypes.object,
 };
 
 WatchItem.defaultProps = {
