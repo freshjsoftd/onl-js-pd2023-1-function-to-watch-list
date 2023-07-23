@@ -13,7 +13,7 @@ function toggleBackground(movie) {
 	};
 }
 
-function WatchItem({ movie, onToggle, onDelete}) {
+function WatchItem({ movie, onToggle, onDelete }) {
 	useEffect(() => {
 		// console.log(`Hello ${movie.director}`);
 		return () => {
